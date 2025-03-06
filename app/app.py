@@ -11,6 +11,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
+    print("Enter hello")
     try:
         visits = redis.incr("counter")
     except RedisError as e:
@@ -24,4 +25,5 @@ def hello():
 
 
 if __name__ == "__main__":
+    print("Loading hello container instance")
     app.run(host="0.0.0.0", port=80)
